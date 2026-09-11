@@ -27,10 +27,16 @@ jobs:
       - run: npm run build
         env:
           GITHUB_ACTIONS: true
+      - name: Flatten project Pages export
+        run: |
+          cp -R ./dist/client/brand ./dist/client/pacific-roadhouse/brand
+          cp -R ./dist/client/food ./dist/client/pacific-roadhouse/food
+          cp ./dist/client/favicon.ico ./dist/client/pacific-roadhouse/favicon.ico
+          cp ./dist/client/apple-icon.png ./dist/client/pacific-roadhouse/apple-icon.png
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/client
+          path: ./dist/client/pacific-roadhouse
 
   deploy:
     environment:
