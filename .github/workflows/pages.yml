@@ -33,10 +33,11 @@ jobs:
           cp -R ./dist/client/food ./dist/client/pacific-roadhouse/food
           cp ./dist/client/favicon.ico ./dist/client/pacific-roadhouse/favicon.ico
           cp ./dist/client/apple-icon.png ./dist/client/pacific-roadhouse/apple-icon.png
+          cp ./dist/client/pacific-roadhouse/index.html ./dist/client/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/client/pacific-roadhouse
+          path: ./dist/client
 
   deploy:
     environment:
